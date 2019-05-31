@@ -8,7 +8,7 @@ Questo repository contiene i testi dei *progetti d'esame* (e le relative informa
 traduttori](https://let.di.unimi.it/) dell'[Università degli Studi di
 Milano](http://www.unimi.it/).
 
-Di seguito trovate i progetti, elencati per anno accademico; le informazioni circa le [modalità d'esame](https://let.di.unimi.it/progetti.html) sono disponibili sul [sito del corso](https://let.di.unimi.it/).
+Di seguito trovate i progetti, elencati per anno accademico; le informazioni circa le [modalità d'esame](https://let.di.unimi.it/info.html#modalita-di-valutazione) sono disponibili sul [sito del corso](https://let.di.unimi.it/).
 
 ## 2018/19
 
