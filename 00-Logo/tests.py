@@ -71,7 +71,7 @@ TESTS = {
             RADSIN 1
             RANDOM 1
             ( RANDOM 1 1 )
-            READWORD 1
+            READWORD
             REMAINDER 1 2
             ROUND 1
             SIN 1
