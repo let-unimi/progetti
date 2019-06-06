@@ -108,7 +108,7 @@ TESTS = {
     """, 'koch': r"""
     
         to line :count :length
-         ifelse :count = 1 [fw :length] [
+         ifelse :count = 1 [fd :length] [
            make "count :count -1 
            (line :count :length)
            lt 60 (line :count :length)
@@ -124,7 +124,7 @@ TESTS = {
         end
 
         cs
-        setxy  45 370
+        setxy  0 0
         (koch 5 5)
         
     """, 'ifelse': r"""
