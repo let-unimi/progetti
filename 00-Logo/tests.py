@@ -194,17 +194,30 @@ INTERPRETER_TESTS = {
     
     'simple_make': [
         r"""
-            MAKE "A 1
+            MAKE "A 123
             PR :A
         """, 
-        '1\n'
+        '123\n'
     ], 'make_with_expr_name': [
         r"""
-            MAKE "NAME "A
-            MAKE :NAME 1
-            PR :A
+            MAKE "NAME "ALIAS
+            MAKE :NAME 123
+            PR :ALIAS
         """,
-        '1\n'
+        '123\n'
+    ], 'simlpe_thing': [
+        r"""
+            MAKE "NAME 123
+            PRINT THING "NAME
+        """,
+        '123\n'
+    ], 'thing_with_expr_name': [
+        r"""
+            MAKE "NAME "ALIAS
+            MAKE THING "NAME 123
+            PRINT THING "ALIAS
+        """,
+        '123\n'
     ], 'if_as_statement_true': [
         r"""
             IF "TRUE [PRINT 1]
