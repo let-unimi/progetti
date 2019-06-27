@@ -208,8 +208,18 @@ PARSER_TESTS = {
 # e l'output sia uguale a quello atteso.
 
 INTERPRETER_TESTS = {
-    
-    'simple_make': [
+
+    'op_precedence': [
+        r"""
+            PR 2 * 3 + 4
+        """,
+        '10\n'
+    ], 'op_precedence_unary': [
+        r"""
+            PR -1 + 1
+        """,
+        '0\n'
+    ], 'simple_make': [
         r"""
             MAKE "A 123
             PR :A
