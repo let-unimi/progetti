@@ -45,27 +45,39 @@ PARSER_TESTS = {
     
         ARC 1 2
         BACK 1
+        BK 1
         CLEAN
         CLEARSCREEN
+        CS
         FORWARD 1
+        FD 1
         HIDETURTLE
+        HT
         HOME
         LEFT 1
+        LT 1
         MAKE "a 1
         PENDOWN
+        PD
         PENUP
+        PU
         PRINT 1
+        PR 1
         ( PRINT 1 2 )
         RERANDOM
         ( RERANDOM 1 )
         RIGHT 1
+        RT 1
         SETHEADING 1
+        SETH 1
         SETPENCOLOR [ 1 2 3 ]
+        SETPC [ 1 2 3 ]
         SETPENSIZE 1
         SETX 1
         SETXY 1 2 
         SETY 1
         SHOWTURTLE
+        ST
 
     """, 'operations': r"""
     
@@ -76,11 +88,15 @@ PARSER_TESTS = {
             COS 1
             DIFFERENCE 1 2
             EXP 1
-            GREATEREQUALP 1 2 
+            GREATEREQUALP 1 2
+            GREATEREQUAL? 1 2 
             GREATERP 1 2 
+            GREATER? 1 2 
             INT 1
             LESSEQUALP 1 2 
+            LESSEQUAL? 1 2 
             LESSP 1 2 
+            LESS? 1 2 
             LN 1
             LOG10 1
             MINUS 1
@@ -97,6 +113,7 @@ PARSER_TESTS = {
             RANDOM 1
             ( RANDOM 1 1 )
             READWORD
+            RW
             REMAINDER 1 2
             ROUND 1
             SIN 1
@@ -214,8 +231,8 @@ INTERPRETER_TESTS = {
     ], 'thing_with_expr_name': [
         r"""
             MAKE "NAME "ALIAS
-            MAKE THING "NAME 123
-            PRINT THING "ALIAS
+            MAKE "ALIAS 123
+            PRINT THING :NAME
         """,
         '123\n'
     ], 'if_as_statement_true': [
