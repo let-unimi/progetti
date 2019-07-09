@@ -14,7 +14,7 @@ Di seguito trovate i progetti, elencati per anno accademico; le informazioni cir
 
 ### Tipo A
 
-* [Un interprete per il linguaggio Logo](00-Logo/Testo.ipynb).
+* [Un interprete per il linguaggio Logo](https://nbviewer.jupyter.org/github/let-unimi/progetti/blob/master/00-Logo/Testo.ipynb).
 
 ### Tipo B
 
