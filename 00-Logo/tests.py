@@ -271,36 +271,37 @@ INTERPRETER_TESTS = {
         '2\n3\n'
     ], 'ifelse_as_operation_true': [
         r"""
-            PRINT IFELSE "TRue [1] [2]
-            PRINT 3
-        """,
-        '1\n3\n'
-    ], 'ifelse_as_operation_multiple_expr': [
-        r"""
-            PRINT IFELSE "TRue [1 2 3] [4]
-            PRINT 5
-        """,
-        '3\n5\n'
-    ], 'ifelse_as_operation_side_effects': [
-        r"""
-            PRINT IFELSE "TRue [MAKE "A 1 2 :A MAKE "A 3] [3]
-            PRINT 4
-        """,
-        '1\n4\n'
-    ], 'ifelse_as_operation_false': [
-        r"""
-            PRINT IFELSE FALSE [1] [2]
+            PRINT 1 + IFELSE "TRue [1] [2]
             PRINT 3
         """,
         '2\n3\n'
+    ], 'ifelse_as_operation_multiple_expr': [
+        r"""
+            PRINT 1 + IFELSE "TRue [1 2 3] [4]
+            PRINT 5
+        """,
+        '4\n5\n'
+    ], 'ifelse_as_operation_side_effects': [
+        r"""
+            PRINT 1 + IFELSE "TRue [MAKE "A 1 2 :A MAKE "A 3] [3]
+            PRINT 4
+        """,
+        '2\n4\n'
+    ], 'ifelse_as_operation_false': [
+        r"""
+            PRINT 1 + IFELSE FALSE [1] [2]
+            PRINT 3
+        """,
+        '3\n3\n'
     ], 'short_circuit' : [
         r"""
             MAKE "X 0
             IFELSE AND [NOT (:X = 0)] [(1 / :X) > .5] [PR 1] [PR 2]
+            IFELSE (AND TRUE [NOT (:X = 0)] TRUE [(1 / :X) > .5] TRUE) [PR 1] [PR 3]
             MAKE "X 1
             IFELSE AND [NOT (:X = 0)] [(1 / :X) > .5] [PR 1] [PR 2]
         """,
-        '2\n1\n'
+        '2\n3\n1\n'
     ], 'bool_expr_and_false' : [
         r"""
             IF AND "TRUE "FALSE [PR 1] PR 2
