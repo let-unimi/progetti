@@ -10,13 +10,50 @@ Milano](http://www.unimi.it/).
 
 Di seguito trovate i progetti, elencati per anno accademico; le informazioni circa le [modalità d'esame](https://let.di.unimi.it/info.html#modalita-di-valutazione) sono disponibili sul [sito del corso](https://let.di.unimi.it/).
 
-## 2018/19
+## Modalità di sviluppo e consegna
 
-### Tipo A
+Il codice deve essere consegnato tramite un **apposito repository** su GitHub
+*creato dal docente a seguito dell'incontro in cui viene concordato il progetto* .
+Gli studenti sono incoraggiati ad effettuare frequenti **commit** periodici per
+testimoniare il processo di sviluppo e sono altresì incoraggiati ad effettuare
+(anche con una frequenza ridotta rispetto ai *commit*) dei **push** periodici al
+fine di informare il docente dello stato di avanzamento del progetto (cosa che
+rende possibili, anche se non garantite, delle eventuali *code review* del
+codice da parte del docente). 
 
-* [Un interprete per il linguaggio Logo](https://nbviewer.jupyter.org/github/let-unimi/progetti/blob/master/00-Logo/Testo.ipynb).
+Al termine del lavoro, *con congruo anticipo rispetto alla data del colloquio*,
+lo studente effettua un commit con messaggio `CONSEGNA FINALE` che segna il
+termine del processo di sviluppo e l'inizio della valutazione definitiva da
+parte del docente. 
 
-### Tipo B
+Chi non conosce o non è in grado di usare `git` e/o GitHub può *documentarsi per
+tempo* in rete, ad esempio seguendo la guida [Git
+Handbook](https://guides.github.com/introduction/git-handbook/) ed usando un
+client grafico come [GitHub Desktop](https://desktop.github.com/). In nessun
+caso sono previste altre modalità di consegna.
+
+### Documentazione e test
+
+Non è richiesta la stesura di una *relazione*; per questa ragione è caldamente
+suggerito che il codice contenga un **minimo di documentazione** atta a guidare
+il docente nella comprensione della sua architettura, delle scelte progettuali
+ed implementative e del comportamento delle sue varie parti. Si consiglia di
+redigere tale documentazione sotto forma di **commenti nel codice**, usando
+eventualmente (solo se si è in grado e senza perdere tempo) uno degli strumenti
+di documentazione automatica disponibili per il linguaggio scelto.
+
+Il codice deve consentire un minimo di **testing**, se non altro sotto forma di test unitari e di accettazione; qualora il testo del progetto indichi esplicitamente alcuni test, è comunque *necessario che lo studente sviluppi ulteriori test* secondo le tecniche e usando gli strumenti che gli sono più familiari.
+
+## Progetti in corso
+
+### Anno 2018/19
+
+#### Tipo A
+
+* [Un interprete per il linguaggio Logo](https://nbviewer.jupyter.org/github/let-unimi/progetti/blob/master/00-Logo/Testo.ipynb);
+* Un interprete per il linguaggio "Tiny HI" (per i progetti successivi all'appello di settembre).
+
+#### Tipo B
 
 Un elenco di possibili argomenti per esami di questo tipo è:
 
