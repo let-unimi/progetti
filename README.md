@@ -19,12 +19,12 @@ testimoniare il processo di sviluppo e sono altresì incoraggiati ad effettuare
 (anche con una frequenza ridotta rispetto ai *commit*) dei **push** periodici al
 fine di informare il docente dello stato di avanzamento del progetto (cosa che
 rende possibili, anche se non garantite, delle eventuali *code review* del
-codice da parte del docente). 
+codice da parte del docente).
 
 Al termine del lavoro, *con congruo anticipo rispetto alla data del colloquio*,
 lo studente effettua un commit con messaggio `CONSEGNA FINALE` che segna il
 termine del processo di sviluppo e l'inizio della valutazione definitiva da
-parte del docente. 
+parte del docente.
 
 Chi non conosce o non è in grado di usare `git` e/o GitHub può *documentarsi per
 tempo* in rete, ad esempio seguendo la guida [Git
@@ -44,14 +44,11 @@ di documentazione automatica disponibili per il linguaggio scelto.
 
 Il codice deve consentire un minimo di **testing**, se non altro sotto forma di test unitari e di accettazione; qualora il testo del progetto indichi esplicitamente alcuni test, è comunque *necessario che lo studente sviluppi ulteriori test* secondo le tecniche e usando gli strumenti che gli sono più familiari.
 
-## Progetti in corso
-
-### Anno 2018/19
+## Progetti per l'anno accademico 2019/20
 
 #### Tipo A
 
-* [Un interprete per il linguaggio Logo](https://nbviewer.jupyter.org/github/let-unimi/progetti/blob/master/00-Logo/Testo.ipynb);
-* Un interprete per il linguaggio "Tiny HI" (per i progetti successivi all'appello di settembre).
+* Un interprete per il linguaggio "Tiny HI" (maggiori dettagli verranno resi noti circa un mese prima del termine del semestre).
 
 #### Tipo B
 
