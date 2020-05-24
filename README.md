@@ -48,7 +48,7 @@ Il codice deve consentire un minimo di **testing**, se non altro sotto forma di 
 
 #### Tipo A
 
-* Un interprete per il linguaggio "Tiny HI" (maggiori dettagli verranno resi noti circa un mese prima del termine del semestre).
+* Un interprete per il linguaggio [Tiny Hi](01-TinyHi/Testo.ipynb).
 
 #### Tipo B
 
