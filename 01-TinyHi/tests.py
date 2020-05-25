@@ -6,14 +6,11 @@
 # * parse: accetta in ingresso una stringa e ne effettua il parsing, se la stringa
 #          rappresenta un programma sintatticamente corretto, la funzione non
 #          solleva eccezioni (il suo valore di ritorno è ignorato).
-# * run:   accetta in ingresso una stringa e due funzioni, rispettivamente per l'input
-#          e l'output; se la stringa rappresenta un programma sintatticamente corretto
-#          lo esegue, se il programma non contiene errori semantici la funzione non
-#          solleva eccezioni (il suo valore di ritorno è ignorato).
-#          Per ogni istruzione `? VAR` l'interprete invoca la funzione di input e
-#          assegna a `VAR` il valore che essa restituisce, similmente, per ogni
-#          istruzione che produce output, interprete invoca la funzione di output
-#          passando per argomento il valore (o vettore di valori) da emettere.
+# * run:   accetta in ingresso una stringa e, se la stringa rappresenta un programma
+#          sintatticamente corretto lo esegue, se il programma non contiene errori
+#          semantici la funzione non solleva eccezioni (il suo valore di ritorno è ignorato).
+#          L'interprete è tale per cui le istruzioni che emettono output lo emettono nel
+#          flusso d'uscita standard (seguito da un '\n').
 #
 # Le seguenti importazioni assumono che le due funzioni si trovino in due file distinti,
 # se la vostra implementazione è differente potete alterare le prossime righe di questo file
@@ -128,6 +125,7 @@ PARSER_TESTS = {
         X <- 1
         X <- "TEST"
         X <- A
+        X <- .A
         X <- F(1)
         X <- F("ONE")
         X <- F(1, 2)
@@ -222,7 +220,13 @@ INTERPRETER_TESTS = {
         END
         DOIT(3)
       END
-    """, [], [(720,)]]
+    """, '720'],
+    'bagl': [r"""
+      BEGIN PROG
+        A <- "ALGEBRA"
+        A[5 1 3 2]
+      END
+    """, 'BAGL']
 
 }
 
@@ -252,24 +256,17 @@ class TestInterpreter(unittest.TestCase):
     pass
 
 def add_interpreter_tests():
-    def _make_test(source, inputs, expected):
-        outputs= []
-        iterinputs = iter(inputs)
-        def _input():
-            return next(iterinputs)
-        def _output(*args):
-            print(args)
-            outputs.append(args)
+    def _make_test(source, expected):
         def _test(self):
             actual = StringIO()
             try:
-                with redirect_stdout(actual): run(source, _input, _output)
+                with redirect_stdout(actual): run(source)
             except Exception as e:
                 self.fail('Exception: {}'.format(e))
-            self.assertEqual(expected, outputs)
+            self.assertEqual(expected, actual.getvalue().strip())
         return _test
-    for name, (source, inputs, expected) in INTERPRETER_TESTS.items():
-        setattr(TestInterpreter, 'test_{0}'.format(name), _make_test(source, inputs, expected))
+    for name, (source, expected) in INTERPRETER_TESTS.items():
+        setattr(TestInterpreter, 'test_{0}'.format(name), _make_test(source, expected))
 
 if __name__ == '__main__':
     add_parser_tests()
