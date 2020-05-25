@@ -44,13 +44,8 @@ from interpreter import run
 
 PARSER_TESTS = {
 
-    'block_unnamed': r"""
-      BEGIN
-        1
-      END
-    """,
     'block_named': r"""
-      BEGIN TEST
+      BEGIN PROG
         1
       END
     """,
@@ -84,29 +79,29 @@ PARSER_TESTS = {
       END
     """,
     'assignement': r"""
-      BEGIN
+      BEGIN PROG
         X <- 1
       END
     """,
     'empty_assignement': r"""
-      BEGIN
+      BEGIN PROG
         X <-
       END
     """,
     'exprstm': r"""
-      BEGIN
+      BEGIN PROG
         1 + 2
       END
     """,
     'if': r"""
-      BEGIN
+      BEGIN PROG
         IF X < 1
           1
         END
       END
     """,
     'ifelse': r"""
-      BEGIN
+      BEGIN PROG
         IF X < 1
           1
         ELSE
@@ -115,21 +110,21 @@ PARSER_TESTS = {
       END
     """,
     'while': r"""
-      BEGIN
+      BEGIN PROG
         WHILE X < 1
           1
         END
       END
     """,
     'until': r"""
-      BEGIN
+      BEGIN PROG
         UNTIL X < 1
           1
         END
       END
     """,
     'atoms': r"""
-      BEGIN
+      BEGIN PROG
         X <- 1
         X <- "TEST"
         X <- A
@@ -140,7 +135,7 @@ PARSER_TESTS = {
       END
     """,
     'unary': r"""
-      BEGIN
+      BEGIN PROG
         X <- -1
         X <- ~ 1
         X <- ~1
@@ -149,7 +144,7 @@ PARSER_TESTS = {
       END
     """,
     'binops': r"""
-      BEGIN
+      BEGIN PROG
         X <- 1 + 2
         X <- 1 - 2
         X <- 1 / 2
@@ -157,7 +152,7 @@ PARSER_TESTS = {
       END
     """,
     'conds': r"""
-      BEGIN
+      BEGIN PROG
         IF X < 1
           1
         END
@@ -179,7 +174,7 @@ PARSER_TESTS = {
       END
     """,
     'list': r"""
-      BEGIN
+      BEGIN PROG
         X <- 1 2 3
         X <- "ONE" "TWO" "THREE"
         X <- 1 A F(1)
@@ -187,20 +182,20 @@ PARSER_TESTS = {
       END
     """,
     'expr_list': r"""
-      BEGIN
+      BEGIN PROG
         X <- 1 2 + 3 4
         X <- 1 + # 2 3
         X <- 2 + ~ 1
       END
     """,
     'expr_func': r"""
-      BEGIN
+      BEGIN PROG
         X <- F(1 2)
         X <- 1 F(1) G (2)
       END
     """,
     'expr_prec': r"""
-      BEGIN
+      BEGIN PROG
         X <- 1 + 2 * 3
         X <- 1 ~ 2 * 3
         X <- 1 # 2 * 3
@@ -213,7 +208,21 @@ PARSER_TESTS = {
 
 INTERPRETER_TESTS = {
 
-    'vector': [r"""""", [1, 2], [(2,), (1,)]]
+    'vector': [r"""
+      BEGIN TEST
+        BEGIN DOIT(N)
+            BEGIN FACT(N)
+                IF N = 0
+                    FACT <- 1
+                ELSE
+                    FACT <- N * FACT(N - 1)
+                END
+            END
+            DOIT <- FACT(2 * N)
+        END
+        DOIT(3)
+      END
+    """, [], [(720,)]]
 
 }
 
