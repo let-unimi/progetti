@@ -40,7 +40,6 @@ from interpreter import run
 # Test per il parser, l'unica cosa verificata è che non vengano sollevate eccezioni.
 
 PARSER_TESTS = {
-
     'block_named': r"""
       BEGIN PROG
         1
@@ -205,8 +204,7 @@ PARSER_TESTS = {
 # e cbe per il dato input, l'output sia uguale a quello atteso.
 
 INTERPRETER_TESTS = {
-
-    'vector': [r"""
+    'fact': [r"""
       BEGIN TEST
         BEGIN DOIT(N)
             BEGIN FACT(N)
@@ -226,8 +224,32 @@ INTERPRETER_TESTS = {
         A <- "ALGEBRA"
         A[5 1 3 2]
       END
-    """, 'BAGL']
-
+    """, 'BAGL'],
+    'gcf': [r"""
+      BEGIN MAIN
+          BEGIN MOD(A, B)
+              MOD <- A-B*(A/B)
+          END
+          BEGIN GCF(XD, YD)
+              X <- XD
+              Y <- YD
+              IF X < Y
+                  T <- X
+                  X <- Y
+                  Y <- T
+                  T <-
+              END
+              R <- Y
+              WHILE R > 0
+                  R <- MOD(X, Y)
+                  X <- Y
+                  Y <- R
+              END
+              GCF <- X
+          END
+          GCF(2*3*5*5*7,2*2*3*5)
+      END
+    """, '30']
 }
 
 #############################################################################
