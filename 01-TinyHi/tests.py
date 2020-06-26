@@ -46,12 +46,18 @@ PARSER_TESTS = {
       END
     """,
     'block_args1': r"""
-      BEGIN ARG(ONE)
+      BEGIN MAIN
+        BEGIN ARG(ONE)
+          1
+        END
         1
       END
     """,
     'block_args2': r"""
-      BEGIN ARG(ONE, TWO)
+      BEGIN MAIN
+        BEGIN ARG(ONE, TWO)
+          1
+        END
         1
       END
     """,
