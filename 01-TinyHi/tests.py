@@ -204,6 +204,14 @@ PARSER_TESTS = {
         X <- 1 # 2 * 3
       END
     """,
+    'block_args0_call': r"""
+      BEGIN PROG
+        BEGIN ZERO
+        1
+        END
+        ZERO()
+      END
+    """
 }
 
 # Test per l'interprete, viene verificato che non vengano sollevate eccezioni
@@ -255,7 +263,47 @@ INTERPRETER_TESTS = {
           END
           GCF(2*3*5*5*7,2*2*3*5)
       END
-    """, '30']
+    """, '30'],
+    'no_args': [r"""
+      BEGIN PROG
+        BEGIN NOARG
+          1
+          NOARG <- -1
+        END
+        TEMP <- NOARG()
+      END
+    """, '1'],
+    'inner_call' : [ r"""
+      BEGIN PROG
+        BEGIN FUNC(X)
+          BEGIN CALL(Y)
+            0
+            CALL <- "CALL"
+          END
+          TEMP <- CALL(0)
+          1
+          FUNC <- "FUNC"
+        END
+        TEMP <- FUNC(0)
+        2
+      END
+    """, '0\n1\n2'
+    ],
+    'no_inner_call' : [ r"""
+      BEGIN PROG
+        BEGIN FUNC(X)
+          BEGIN NEVER(Y)
+            0
+            NEVER <- "NEVER"
+          END
+          1
+          FUNC <- "FUNC"
+        END
+        TEMP <- FUNC(0)
+        2
+      END
+    """, '1\n2'
+    ]
 }
 
 #############################################################################
@@ -296,7 +344,8 @@ def add_interpreter_tests():
     for name, (source, expected) in INTERPRETER_TESTS.items():
         setattr(TestInterpreter, 'test_{0}'.format(name), _make_test(source, expected))
 
+add_parser_tests()
+add_interpreter_tests()
+
 if __name__ == '__main__':
-    add_parser_tests()
-    add_interpreter_tests()
     unittest.main(exit = False)
