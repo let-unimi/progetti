@@ -211,6 +211,75 @@ PARSER_TESTS = {
         END
         ZERO()
       END
+    """,
+    'empty_line_0': r"""
+      BEGIN PROG
+
+        1
+        2
+      END
+    """,
+    'empty_line_1': r"""
+      BEGIN PROG
+        1
+
+        2
+      END
+    """,
+    'empty_line_2': r"""
+      BEGIN PROG
+        1
+        2
+
+      END
+    """,
+    'empty_line_if_0': r"""
+      BEGIN MAIN
+        IF X < 1
+
+            1
+        END
+      END
+    """,
+    'empty_line_if_1': r"""
+      BEGIN MAIN
+        IF X < 1
+            1
+
+        END
+      END
+    """,
+    'empty_line_while_0': r"""
+      BEGIN MAIN
+        WHILE X < 1
+
+            1
+        END
+      END
+    """,
+    'empty_line_while_1': r"""
+      BEGIN MAIN
+        WHILE X < 1
+            1
+
+        END
+      END
+    """,
+    'empty_line_until_0': r"""
+      BEGIN MAIN
+        UNTIL X < 1
+
+            1
+        END
+      END
+    """,
+    'empty_line_until_1': r"""
+      BEGIN MAIN
+        UNTIL X < 1
+            1
+
+        END
+      END
     """
 }
 
@@ -273,7 +342,7 @@ INTERPRETER_TESTS = {
         TEMP <- NOARG()
       END
     """, '1'],
-    'inner_call' : [ r"""
+    'inner_call' : [r"""
       BEGIN PROG
         BEGIN FUNC(X)
           BEGIN CALL(Y)
@@ -287,9 +356,8 @@ INTERPRETER_TESTS = {
         TEMP <- FUNC(0)
         2
       END
-    """, '0\n1\n2'
-    ],
-    'no_inner_call' : [ r"""
+    """, '0\n1\n2'],
+    'no_inner_call' : [r"""
       BEGIN PROG
         BEGIN FUNC(X)
           BEGIN NEVER(Y)
@@ -302,8 +370,41 @@ INTERPRETER_TESTS = {
         TEMP <- FUNC(0)
         2
       END
-    """, '1\n2'
-    ]
+    """, '1\n2'],
+    'concat': [r"""
+      BEGIN MAIN
+        A <- 1 2
+        A <- A 3 4
+        A
+      END
+    """, '1 2 3 4'],
+    'vecsum': [r"""
+      BEGIN MAIN
+        1 2 3 + 4 5 6
+      END
+    """, '5 7 9'],
+    'strcat_0': [r"""
+      BEGIN MAIN
+        "AB" "CD"
+      END
+    """, 'ABCD'],
+    'strcat_1': [r"""
+      BEGIN MAIN
+        A <- "AB"
+        B <- "CD"
+        A B
+      END
+    """, 'ABCD'],
+    'bcast': [r"""
+      BEGIN MAIN
+        1 + 4 5 6
+      END
+    """, '5 6 7'],
+    'bcast': [r"""
+      BEGIN MAIN
+        #5 73 -1
+      END
+    """, '3']
 }
 
 #############################################################################
