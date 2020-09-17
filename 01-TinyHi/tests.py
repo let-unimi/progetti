@@ -280,7 +280,8 @@ PARSER_TESTS = {
 
         END
       END
-    """
+    """,
+    'long_expr': "BEGIN MAIN\n 1" + "+ 1" * 980 + "\n END\n"
 }
 
 # Test per l'interprete, viene verificato che non vengano sollevate eccezioni
@@ -371,13 +372,20 @@ INTERPRETER_TESTS = {
         2
       END
     """, '1\n2'],
-    'concat': [r"""
+    'concat_0': [r"""
       BEGIN MAIN
         A <- 1 2
         A <- A 3 4
         A
       END
     """, '1 2 3 4'],
+    'concat_1': [r"""
+      BEGIN MAIN
+        A <- 1 2
+        B <- A[1] A[2]
+        B
+      END
+    """, '1 2'],
     'vecsum': [r"""
       BEGIN MAIN
         1 2 3 + 4 5 6
@@ -400,11 +408,58 @@ INTERPRETER_TESTS = {
         1 + 4 5 6
       END
     """, '5 6 7'],
-    'bcast': [r"""
+    'bcast_1': [r"""
       BEGIN MAIN
         #5 73 -1
       END
-    """, '3']
+    """, '3'],
+    'vecdis_0': [r"""
+      BEGIN MAIN
+        IF 1 2 < 3 4
+          1
+        ELSE
+          0
+        END
+      END
+    """, '1'],
+    'vecdis_1': [r"""
+      BEGIN MAIN
+        IF 1 2 > 3 4
+          1
+        ELSE
+          0
+        END
+      END
+    """, '0'],
+    'veceq_0': [r"""
+      BEGIN MAIN
+        IF 1 2 = 1 2
+          1
+        ELSE
+          0
+        END
+      END
+    """, '1'],
+        'veceq_1': [r"""
+      BEGIN MAIN
+        IF 1 2 <> 1 2
+          1
+        ELSE
+          0
+        END
+      END
+    """, '0'],
+    'loopscope_0': [r"""
+      BEGIN MAIN
+        I <- 1
+        WHILE I < 10
+          I <- I + 1
+          R <- I
+        END
+        R
+      END
+    """, '10'],
+
 }
 
 #############################################################################
