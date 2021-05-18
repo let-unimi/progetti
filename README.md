@@ -44,11 +44,11 @@ di documentazione automatica disponibili per il linguaggio scelto.
 
 Il codice deve consentire un minimo di **testing**, se non altro sotto forma di test unitari e di accettazione; qualora il testo del progetto indichi esplicitamente alcuni test, è comunque *necessario che lo studente sviluppi ulteriori test* secondo le tecniche e usando gli strumenti che gli sono più familiari.
 
-## Progetti per l'anno accademico 2019/20
+## Progetti per l'anno accademico 2020/21
 
 #### Tipo A
 
-* Un interprete per il linguaggio [Tiny Hi](01-TinyHi/Testo.ipynb).
+* [Simplicio](02-Simplicio/Testo.ipynb), lo svolgitore automatico di espressioni.
 
 #### Tipo B
 
