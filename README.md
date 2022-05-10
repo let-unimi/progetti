@@ -48,7 +48,7 @@ Il codice deve consentire un minimo di **testing**, se non altro sotto forma di 
 
 #### Tipo A
 
-* [Simplicio](02-Simplicio/Testo.ipynb), lo svolgitore automatico di espressioni.
+* [Mascheroni](03-Mascheroni), un interprete per costruzioni geometriche con riga e compasso.
 
 #### Tipo B
 
