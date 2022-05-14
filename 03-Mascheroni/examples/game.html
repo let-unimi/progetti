@@ -1,0 +1,55 @@
+<html><body><h1>Source</h1><pre>to construct nthpoint point P_n given point P_0, point P_1 do
+  define ray[P_(n-2), P_(n-1)] ∩1 circle[P_(n-1), P_(n-2)] as P_n 
+done
+
+to construct nthsegment segment s_n given segment s_0, point V, point H do
+  define segment[V_(10-n), H_n] as s_n
+done
+
+to construct nthintersect point I_n given point I_0, segment s do
+  define s_(n-1) ∩ s_n as I_n
+done
+
+to construct main given point O, point V, point H do
+
+  with nthpoint(O, V) as Vi and nthpoint(O, H) as Hi and 
+       nthsegment(segment[O, Vi_10], Vi, Hi) as ti and
+       nthintersect(O, ti) as Ii do
+
+      define ti as tt upto 10
+      define Ii as ii upto 10
+
+  done
+  show
+done</pre><h1>Input</h1><pre>[Point2D(0, 0), Point2D(0, 30), Point2D(30, 0)]</pre><h1>Output</h1><pre>[]</pre><h1>Show</h1><fieldset style="border: 1pt dashed black; margin: .5em 0;"><legend>main</legend><div><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="360.0" height="360.0" viewBox="-36.0 -324.0 360.0 360.0">
+<defs>
+</defs>
+<rect x="-36.0" y="-324.0" width="360.0" height="360.0" fill="lightyellow" />
+<circle cx="0.0" cy="-0.0" r="3" fill="red" />
+<circle cx="0.0" cy="-30.0" r="3" fill="red" />
+<circle cx="30.0" cy="-0.0" r="3" fill="red" />
+<path d="M0.0,-0.0 L0.0,-300.0" stroke="black" />
+<path d="M0.0,-270.0 L30.0,-0.0" stroke="black" />
+<path d="M0.0,-240.0 L60.0,-0.0" stroke="black" />
+<path d="M0.0,-210.0 L90.0,-0.0" stroke="black" />
+<path d="M0.0,-180.0 L120.0,-0.0" stroke="black" />
+<path d="M0.0,-150.0 L150.0,-0.0" stroke="black" />
+<path d="M0.0,-120.0 L180.0,-0.0" stroke="black" />
+<path d="M0.0,-90.0 L210.0,-0.0" stroke="black" />
+<path d="M0.0,-60.0 L240.0,-0.0" stroke="black" />
+<path d="M0.0,-30.0 L270.0,-0.0" stroke="black" />
+<path d="M0.0,-0.0 L300.0,-0.0" stroke="black" />
+<circle cx="0.0" cy="-0.0" r="3" fill="black" />
+<circle cx="0.0" cy="-270.0" r="3" fill="black" />
+<circle cx="6.0" cy="-216.0" r="3" fill="black" />
+<circle cx="18.0" cy="-168.0" r="3" fill="black" />
+<circle cx="36.0" cy="-126.0" r="3" fill="black" />
+<circle cx="60.0" cy="-90.0" r="3" fill="black" />
+<circle cx="90.0" cy="-60.0" r="3" fill="black" />
+<circle cx="126.0" cy="-36.0" r="3" fill="black" />
+<circle cx="168.0" cy="-18.0" r="3" fill="black" />
+<circle cx="216.0" cy="-6.0" r="3" fill="black" />
+<circle cx="270.0" cy="-0.0" r="3" fill="black" />
+</svg></div></fieldset></body></html>
