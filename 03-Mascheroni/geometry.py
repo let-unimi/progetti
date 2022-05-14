@@ -77,8 +77,8 @@ TYPENAME2MAKER = {
   'line': Line,
   'circle': CirclePoint,
   'intersection': intersection,
-  'intersection0': partial(intersection, whichone = 0),
-  'intersection1': partial(intersection, whichone = 1)
+  'intersection0': partial(intersection, which_one = 0),
+  'intersection1': partial(intersection, which_one = 1)
 }
 
 def make_entity(type_name: str, first: Point, second: Point) -> Union[Point, Segment, Ray, Line, CirclePoint]:
