@@ -8,6 +8,8 @@ import drawSvg as draw
 from sympy.geometry.entity import GeometryEntity
 from sympy import Point, Line, Ray, Circle, Segment, Polygon, atan2, pi
 
+APPROXIMATE_INTERSECTIONS = False
+
 class CirclePoint(Circle):
   """Un cerchio definito dal centro e da un punto sulla circonferenza.
   
@@ -22,7 +24,7 @@ class CirclePoint(Circle):
   def __repr__(self):
     return f'CirclePoint({self.center}, {self.point})'
 
-def intersection(first: GeometryEntity, second: GeometryEntity, which_one: Optional[int] = None) -> Union[Point, Tuple[Point, Point]]:
+def intersection(first: GeometryEntity, second: GeometryEntity, which_one: Optional[int] = None, approx: Optional[bool] = APPROXIMATE_INTERSECTIONS) -> Union[Point, Tuple[Point, Point]]:
   """Restituisce in modo ordinato i punti di una intersezione tra enti
   geometrici.
 
@@ -35,11 +37,16 @@ def intersection(first: GeometryEntity, second: GeometryEntity, which_one: Optio
   Returns:
     I punti che costituiscono l'intersezione.
   """
+
   intersection = first.intersect(second)
   if len(intersection) not in {1, 2}:
     raise ValueError(f'One, or two intersections where expected, found {len(intersection)} instead')
 
-  def angle(c, p):
+  def _approx(p):
+    x, y = p
+    return Point(float(x), float(y))
+
+  def _angle(c, p):
     p = p - c
     a = atan2(p.y, p.x)
     return a if a >= 0 else 2 * pi + a
@@ -57,18 +64,18 @@ def intersection(first: GeometryEntity, second: GeometryEntity, which_one: Optio
       d0, d1 = first.p1.distance(e0), first.p1.distance(e1)
       if d0 > d1: e0, e1 = e1, e0
     elif isinstance(first, CirclePoint):
-      ap = angle(first.center, first.point)
-      a0 = angle(first.center, e0)
-      a1 = angle(first.center, e1)
+      ap = _angle(first.center, first.point)
+      a0 = _angle(first.center, e0)
+      a1 = _angle(first.center, e1)
       if a0 > a1: 
         a0, a1 = a1, a0
         e0, e1 = e1, e0
       if a0 < ap <= a1: # first must be < not <=
         e0, e1 = e1, e0
     if which_one is None:
-      return e0, e1
+      return (_approx(e0), _approx(e1)) if approx else (e0, e1)
     else:
-      return e0 if which_one == 0 else e1
+      return (_approx(e0) if approx else e0) if which_one == 0 else (_approx(e1) if approx else e0)
 
 TYPENAME2MAKER = {
   'point': Point,
