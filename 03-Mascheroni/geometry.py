@@ -9,7 +9,6 @@ from sympy.geometry.entity import GeometryEntity
 from sympy import Point, Line, Ray, Circle, Segment, Polygon, atan2, pi
 
 APPROXIMATE_INTERSECTIONS = False
-
 class CirclePoint(Circle):
   """Un cerchio definito dal centro e da un punto sulla circonferenza.
   
@@ -75,7 +74,7 @@ def intersection(first: GeometryEntity, second: GeometryEntity, which_one: Optio
     if which_one is None:
       return (_approx(e0), _approx(e1)) if approx else (e0, e1)
     else:
-      return (_approx(e0) if approx else e0) if which_one == 0 else (_approx(e1) if approx else e0)
+      return (_approx(e0) if approx else e0) if which_one == 0 else (_approx(e1) if approx else e1)
 
 TYPENAME2MAKER = {
   'point': Point,
