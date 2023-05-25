@@ -44,11 +44,11 @@ di documentazione automatica disponibili per il linguaggio scelto.
 
 Il codice deve consentire un minimo di **testing**, se non altro sotto forma di test unitari e di accettazione; qualora il testo del progetto indichi esplicitamente alcuni test, è comunque *necessario che lo studente sviluppi ulteriori test* secondo le tecniche e usando gli strumenti che gli sono più familiari.
 
-## Progetti per l'anno accademico 2020/21
+## Progetti per l'anno accademico 2022/23
 
 #### Tipo A
 
-* [Mascheroni](03-Mascheroni), un interprete per costruzioni geometriche con riga e compasso.
+* [Smaller Basic](04-SmallerBasic), un interprete/compilatore per una variante semplificata del linguaggio BASIC.
 
 #### Tipo B
 
