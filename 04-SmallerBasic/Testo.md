@@ -14,12 +14,12 @@ livello, caratterizzati da notevole semplicità d'uso; il primo esempio di
 linguaggi di tale famiglia è stato introdotto da John G. Kemeny e Thomas E.
 Kurtz, presso il Dartmouth College nel 1963.
 
-Per gli scopi del corrente progetto faremo riferimento ad un esempio più
+Per gli scopi del corrente progetto faremo riferimento a un esempio più
 recente, denominato "Small Basic", prodotto da Microsoft e descritto nel
 documento [The Developer's Reference Guide to Small Basic](https://social.technet.microsoft.com/wiki/contents/articles/16767.the-developers-reference-guide-to-small-basic.aspx).
 
-Di seguito, nella sezione "Il linguaggio", sarà data una descrizione accurata
-del linguaggio da implementare e, nella sezione "Modulazione del progetto",
+Di seguito, nella sezione [Il linguaggio](#il-linguaggio), sarà data una descrizione accurata
+del linguaggio da implementare e, nella sezione [Modulazione del progetto](#modulazione-del-progetto),
 saranno descritte in dettaglio le specifiche del progetto.
 
 # Il linguaggio
@@ -41,9 +41,9 @@ non è altrimenti significativo.
 Gli **identificatori** sono sequenze di al più 40 caratteri a scelta tra quelli
 alfabetici, numerici e il carattere *underscore* (`_`) che non iniziano per
 numero, escluse le **parole riservate** che saranno elencate nella sezione sul
-"Controllo del flusso". Ci sono diversi tipi di **costanti letterali** che
+[Controllo del flusso](#istruzioni). Ci sono diversi tipi di **costanti letterali** che
 saranno descritte nella sezione sui "Tipi di dato", così come vari **operatori**
-e simboli che saranno descritti nella sezione sulle "Espressioni". Sono inoltre
+e simboli che saranno descritti nella sezione sulle [Espressioni](#espressioni). Sono inoltre
 token il punto `.` e le parentesi quadre `[` e `]`.
 
 ## Espressioni e Istruzioni
@@ -76,10 +76,10 @@ appartengono al linguaggio definito dall'espressione regolare Python
 
 Le stringhe sono sequenze di caratteri appartenenti al segmento "stampabile"
 della codifica ASCII (ossia con codifica da 32 a 126, estremi compresi, ma
-escluso il 22); le costanti letterali stringa sono date alla sequenze di
+escluso il 22); le costanti letterali stringa sono date dalle sequenze di
 caratteri della stringa racchiusi tra `"`. Non sono previsti caratteri di
-*escape* per tanto, ad esempio, la stringa "\n" corrisponde ai due caratteri "\"
-e "n".
+*escape*; pertanto, ad esempio, la stringa `"\n"` corrisponde ai due caratteri `"\"`
+e `"n"`.
 
 I booleani possono avere valore *vero* (corrispondente al letterale `"true"`) o
 *falso* (corrispondente al letterale `"false"`).
@@ -157,14 +157,14 @@ Le possibili **istruzioni** di un programma sono:
 * invocazioni di subroutine,
 * invocazioni di funzioni del modulo di libreria `IO`.
 
-L'**assegnamento** corrisponde ad una istruzione della forma `V = E` dove `V` è
+L'**assegnamento** corrisponde a una istruzione della forma `V = E` dove `V` è
 un qualunque identificatore e `E` una qualunque espressione.
 
 Una **etichetta** è un identificatore seguito da `:`, ciascun identificatore può
 essere usato una sola volta all'interno del programma.
 
 Le *subroutine* o *funzioni di libreria* saranno introdotte nelle sezioni
-seguenti, una **invocazione** di una subroutine, o funzione, è data dal suo nome
+seguenti. Una **invocazione** di una subroutine, o funzione, è data dal suo nome
 seguito da una coppia di `(` `)` (tra le quali, nel caso di funzioni, potrebbe
 trovarsi un elenco di espressioni).
 
@@ -188,7 +188,7 @@ o
 ```If (C) Then … Else … EndIf``` 
 
 in ciascuna delle quali `C` è una qualunque espressione booleana e `…` una
-qualunqu sequenza di istruzioni.
+qualunque sequenza di istruzioni.
 
 #### Iterazione
 
@@ -209,16 +209,16 @@ L'**iterazione** è realizzata attraverso:
   
   ```For V = F To T Step S … EndFor``` 
   
-  in cui `V` è una variabile, `F`, `T` e `S` (se presente) sono una qualunque
-  espressione aritmetica (in cui non compare `V`) e `…` una qualunque sequenza
-  di istruzioni che non comprenda assegnamenti alla variabile `V`.
+  in cui `V` è una variabile, `F`, `T` e `S` (se presente) sono espressioni
+  aritmetiche (in cui non compare `V`) e `…` una sequenza di istruzioni che non
+  comprenda assegnamenti alla variabile `V`.
 
 La semantica dei cicli è quella usuale; in particolare, nel caso del numero
 prestabilito di iterati, le espressioni possono avere valore sia intero che
-reale, la variabile sarà inizializzata al valore di `S` e ad ogni `EndFor` sarà
-incrementata del valore pari a `S` (valutato una sola volta all'inizio del
-ciclo) e il ciclo proseguirà finché la variabile ha valore minore o uguale a
-`T`.
+reale, la variabile sarà inizializzata al valore di `F` e a ogni `EndFor` sarà
+incrementata del valore pari a `S` e il ciclo proseguirà finché la variabile ha
+valore minore o uguale a `T`; le espressioni `F`, `T` e `S` (se presente) sono
+valutate una sola volta, prima dell'inizio dell'iterazione.
 
 #### Salti incondizionati
 
@@ -229,7 +229,7 @@ ragioni](https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf).
 Se l'istruzione di una sequenza è un `Goto` l'esecuzione della sequenza (e di
 tutti i cicli annidati, o subroutine in cui essa si trova) termina
 immediatamente e l'esecuzione prosegue dal punto del codice identificato
-dall'etichetta avente lo stesso nome di quella che segue l'istruzione `Goto`che
+dall'etichetta avente lo stesso nome di quella che segue l'istruzione `Goto` che
 ha prodotto il salto.
 
 Ad esempio, nel codice
@@ -237,17 +237,17 @@ Ad esempio, nel codice
 ```
 For A = 1 To 10
   For B = 1 To 10
-    A = 3 * 4
+    C = 3 * 4
     Goto fine
   EndFor
 EndFor
 B = 1 + 2
 fine:
-C = 4
+D = 4
 ```
 
-la sequenza di esecuzione è data dall'assegnamento ad `A` (eseguito una sola
-volta) e poi a `C`.
+la sequenza di esecuzione è data dall'assegnamento ad `C` (eseguito una sola
+volta) e poi a `D`.
 
 Ragionare sulla semantica del codice in presenza di salti incondizionati è
 affatto non banale, per questa ragione prestate molta attenzione a come
@@ -287,7 +287,7 @@ previste due funzioni di libreria:
 
 * `IO.ReadLine()`, che non ha argomenti e restituisce una riga letta dal *flusso
   di ingresso standard*; se la riga contiene solo un valore che può essere
-  convertito ad un valore numerico, la conversione avviene automaticamente,
+  convertito in un valore numerico, la conversione avviene automaticamente,
   viceversa viene restituita una stringa;
 
 * `IO.WriteLine()` che ha un solo argomento, di qualunque tipo, che emetterà nel
@@ -337,7 +337,7 @@ Per svolgere il progetto sarà necessario:
 2. Implementare un **parser** (e un eventuale ulteriore processo di
    raffinamento) in grado di ricostruire la suddetta struttura.
    
-3. Implementare un **interprete** (*ricorsivo*, o *iterativo*, ma non un
+3. Implementare un **interprete** (*ricorsivo* o *iterativo*, ma non un
    transpilatore) o un **compilatore** in grado di eseguire un programma in
    "Smaller Basic"; in questa fase può essere opportuno, tra l'altro,
    raccogliere informazioni sui tipi delle espressioni.
@@ -396,13 +396,13 @@ difficile poter adire al massimo voto).
 
 La realizzazione dei salti incondizionati determinati dall'istruzione `Goto` può
 richiedere uno sforzo aggiuntivo nel caso si scelga di implementare un
-interprete *ricorsivo*: salti non condizionali ricorsione non convivono
+interprete *ricorsivo*: salti non condizionali e ricorsione non convivono
 facilmente! Molto più semplice è il caso di un interprete *iterativo* o di un
 compilatore (in cui la nozione di *program counter* può agevolare immensamente
 l'implementazione dei salti incondizionati).
 
 Chi volesse tentare la strada dell'interprete *ricorsivo* può usare questa
-strategia: 
+strategia proposta in [Truffle/C Interpreter](https://ssw.jku.at/General/Staff/ManuelRigger/thesis.pdf): 
 
 * quando l'interprete incontra un `Goto` solleva una eccezione e interrompe la
   visita "normale" tenendo traccia dell'etichetta dalla quale dovrà proseguire
