@@ -1,8 +1,5 @@
 # Smaller Basic
 
-**Questa è una versione preliminare, potrebbe subire piccoli cambiamenti; 
-la versione definitiva sarà stabilita entro la fine del corso.**
-
 Scopo del progetto è implementare un semplice *interprete* o *compilatore* per
 una versione semplificata del linguaggio **Small Basic** di **Microsoft** che
 chiameremo "Smaller Basic".
@@ -439,3 +436,5 @@ diversi programmi ciascuno su diversi input, raccogliendone in modo semplice
 l'output. La valutazione sarà basata (tra l'altro) su una batteria di test che
 sarà parzialmente messa a disposizione degli studenti prima della consegna della
 versione finale del progetto.
+
+**Nota bene:** i test verranno resi disponibili nei primi giorni di giugno.
