@@ -141,7 +141,7 @@ questa sezione, l'espressione
 è equivalente a
 
 ```
-((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)).
+((1 + (2 * 3)) < 5) Or (a = ((1 + b) + 2)).
 ```
 
 ### Istruzioni
