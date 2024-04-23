@@ -48,7 +48,8 @@ Il codice deve consentire un minimo di **testing**, se non altro sotto forma di 
 
 #### Tipo A
 
-* [Smaller Basic](04-SmallerBasic), un interprete/compilatore per una variante semplificata del linguaggio BASIC.
+* [Luppolo](05-Luppolo), un interprete/compilatore per un semplice *computer
+  algebra system*.
 
 #### Tipo B
 
