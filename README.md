@@ -44,11 +44,11 @@ di documentazione automatica disponibili per il linguaggio scelto.
 
 Il codice deve consentire un minimo di **testing**, se non altro sotto forma di test unitari e di accettazione; qualora il testo del progetto indichi esplicitamente alcuni test, è comunque *necessario che lo studente sviluppi ulteriori test* secondo le tecniche e usando gli strumenti che gli sono più familiari.
 
-## Progetti per l'anno accademico 2022/23
+## Progetti per l'anno accademico 2023/24
 
 #### Tipo A
 
-* [Luppolo](05-Luppolo), un interprete/compilatore per un semplice *computer
+* **versione preliminare** [Luppolo](05-Luppolo), un interprete/compilatore per un semplice *computer
   algebra system*.
 
 #### Tipo B
