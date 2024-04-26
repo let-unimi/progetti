@@ -429,9 +429,9 @@ Una **espressione** (intesa come elemento lessicali del linguaggio) è
 :tags: [remove-input]
 expr = NonTerminal("espressione")
 Diagram(Choice(0,
-  Sequence("(", expr, ")"),
   Sequence(Choice(1, '+', Skip(), '-'), expr, HorizontalChoice('+', '-', '*', '/', '^'), expr),
-  HorizontalChoice(NonTerminal("NAT"), NonTerminal("SYM"), NonTerminal("ID"), NonTerminal('chiamata'))
+  HorizontalChoice(NonTerminal("NAT"), NonTerminal("SYM"), NonTerminal("ID"), NonTerminal('chiamata')),
+  Sequence("(", expr, ")"),
 ))
 ```
 
@@ -448,9 +448,10 @@ Una **condizione** (a valore *booleano*) è
 cond = NonTerminal("condizione")
 expr = NonTerminal("espressione")
 Diagram(Choice(0,
-  Sequence("(", cond, ")"),
-  Sequence(Optional("!"), cond, HorizontalChoice('and', 'or'), cond),
+  Sequence(cond, HorizontalChoice('and', 'or'), cond),
+  Sequence("!", cond),
   HorizontalChoice('true', 'false', NonTerminal('chiamata')),
+  Sequence("(", cond, ")"),
   Sequence(expr, HorizontalChoice('<=', '<', '==', '>', '>='), expr),
 ))
 ```
