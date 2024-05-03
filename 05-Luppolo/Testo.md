@@ -95,7 +95,8 @@ mentre i **nodi interni** sono di tre *tipi*
 
   * **addizioni** con figli $e_1, e_2, \ldots e_n$ denominati *addendi*,
   * **moltiplicazioni** con figli $e_1, e_2, \ldots e_n$ denominati *fattori*,
-  * **potenze** con figli $e_1, e_2$ denominati rispettivamente *base* ed *esponente*.
+  * **potenze** con figli $e_1, e_2$ corrispondenti rispettivamente alla *base*
+    ed *esponente* della potenza.
 
 dove $e_1, e_2, \ldots e_n$ sono espressioni e $n > 1$.
 
@@ -108,7 +109,8 @@ $$
 $$
 
 e tale che, a parità di tipo, viga l'ordine derivato da quello lessicografico
-tra i figli dei due nodi.
+tra i figli dei due nodi. Si osservi che l'ordine influisce sull'ordine dei
+figli dei nodi *addizione* e *moltiplicazione*, ma non sulle *potenze*. 
 
 ```{warning}
 L'ordine potrebbe cambiare nella versione definitiva, pertanto è importante
@@ -116,7 +118,7 @@ che sia possibile modificare facilmente il codice per adattarsi a tale cambiamen
 ```
 
 Due espressioni sono **uguali** se e solo se i loro alberi sono identici,
-tenendo anche conto dell'ordine dei nodi.
+tenendo anche conto dell'ordine dei nodi. 
 
 Per **sotto-espressione** di una espressione si intende un suo sotto-albero
 (compresa l'espressione stessa).
@@ -389,7 +391,7 @@ formali* e quindi da un blocco
 
 ```{code-cell} ipython3
 :tags: [remove-input]
-Diagram(NonTerminal("ID"), "(", ZeroOrMore(NonTerminal("ID")), ")", NonTerminal("blocco"))
+Diagram(NonTerminal("ID"), "(", ZeroOrMore(NonTerminal("ID"), ","), ")", NonTerminal("blocco"))
 ```
 
 Le funzioni devono avere nomi distinti e deve esistere una funzione di nome
@@ -429,7 +431,8 @@ Una **espressione** (intesa come elemento lessicali del linguaggio) è
 :tags: [remove-input]
 expr = NonTerminal("espressione")
 Diagram(Choice(0,
-  Sequence(Choice(1, '+', Skip(), '-'), expr, HorizontalChoice('+', '-', '*', '/', '^'), expr),
+  Sequence(Choice(1, '+', '-'), expr),
+  Sequence(expr, HorizontalChoice('+', '-', '*', '/', '^'), expr),
   HorizontalChoice(NonTerminal("NAT"), NonTerminal("SYM"), NonTerminal("ID"), NonTerminal('chiamata')),
   Sequence("(", expr, ")"),
 ))
@@ -448,24 +451,24 @@ Una **condizione** (a valore *booleano*) è
 cond = NonTerminal("condizione")
 expr = NonTerminal("espressione")
 Diagram(Choice(0,
-  Sequence(cond, HorizontalChoice('and', 'or'), cond),
-  Sequence("!", cond),
-  HorizontalChoice('true', 'false', NonTerminal('chiamata')),
-  Sequence("(", cond, ")"),
   Sequence(expr, HorizontalChoice('<=', '<', '==', '>', '>='), expr),
+  Sequence("!", cond),
+  Sequence(cond, HorizontalChoice('and', 'or'), cond),
+  HorizontalChoice('true', 'false'),
+  Sequence("(", cond, ")"),
 ))
 ```
 La **chiamata** di funzione è
 
 ```{code-cell} ipython3
 :tags: [remove-input]
-Diagram(NonTerminal("ID"), "(", ZeroOrMore(NonTerminal("espressione")), ")")
+Diagram(NonTerminal("ID"), "(", ZeroOrMore(NonTerminal("espressione"), "," ), ")")
 ```
 
 dove l'identificatore sta per il *nome* della funzione e le espressioni
 costituiscono i *parametri concreti* della chiamata.
 
-#### Una nota sulle espressioni
+#### Una nota sulle espressioni e condizioni
 
 Le *espressioni intese come elemento lessicale* del linguaggio Luppolo **non
 coincidono** con le *espressioni algebriche* definite nella sezione precedente;
@@ -482,7 +485,9 @@ di parsing dal quale è semplice ottenere in modo non ambiguo una sola
 * le `(` e `)` abbiano la precedenza su tutti gli operatori,
 * `^` abbia la precedenza su tutti gli operatori binari e unari,
 * `*` e `/` abbiano precedenza su `+` e `-` unari e binari,
+* l'`and` abbia precedenza sull'`or`,
 * il `+` e `-` unari hanno precedenza su `+` e `-` binari,
+* é il `!` unario abbia precedenza su `and` e `or`,
 * `^` sia associativo a destra, mentre tutti gli altri operatori binari siano
   associativi a sinistra.
 
@@ -598,6 +603,15 @@ invocate anche se non sono state definite esplicitamente. Tali funzioni sono:
 Si osservi che sebbene `DerivePolynomial` possa banalmente essere ottenuta da
 `SimpleDerive` potrebbe risultare più semplice implementarla direttamente (ad
 esempio, nel caso in cui si decidesse di non implementare `SimpleDerive`).
+
+#### Input e output
+
+Secondo le specifiche date sin qui, un programma in Luppolo riceve "input" solo
+ attraverso i parametri formali della funzione `Main` e produce "output" solo
+ attraverso l'istruzione `return` della stessa funzione.
+
+Se lo si ritiene utile, è possibile aggiungere delle *funzioni di libreria* per
+consentire la gestione di forme più "tradizionali" di *input* e *output*.
 
 #### Ripasso delle derivate
 
