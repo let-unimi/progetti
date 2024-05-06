@@ -74,12 +74,14 @@ Il seguito di questo documento descrive:
   discussione sui *criteri di valutazione* del medesimo.
 
 ```{warning}
-Questa è una **versione preliminare** del progetto, pubblicata per consentire un 
+Questa è la **versione preliminare** del progetto, pubblicata per consentire un 
 approfondimento preliminare degli aspetti legati alla manipolazione di espressioni.
 
 Prima di iniziare lo sviluppo del progetto *attendente che venga pubblicata la 
 versione definitiva* e di esservi *accordati col docente* sugli aspetti legati
 al contenuto dell'insegnamento.
+
+Versione: `$Id: 84b3ef49f117acf0bd1966d19676b00219cd8c1a $`
 ```
 
 ## Le espressioni algebriche
@@ -276,16 +278,17 @@ Tale manipolazione prende il nome di **espansione** e si ottiene applicando le
 seguenti trasformazioni definite induttivamente.
 
 * I nodi **potenza** con *esponente* razionale $\frac p q$ vengono espansi come
-  il prodotto della *base* per se stessa $|p|$ volte, elevato a $\frac {p/|p|}
-  q$: ad esempio $(x+1)^{-3/2} = \left( (x+1)\cdot (x+1) \cdot (x+1)
-  \right)^{-1/2}$; se l'esponente non è razionale, l'espansione si limita
-  all'esponente: per esempio $(x+1)^{(x+1)\cdot x} = (x+1)^{x^2 + x}$.
+  il prodotto dell'espansione della *base* per se stessa $|p|$ volte, elevato a
+  $\frac {p/|p|} q$: ad esempio $(x+1)^{-3/2} = \left( (x+1)\cdot (x+1) \cdot
+  (x+1) \right)^{-1/2}$; se l'esponente non è razionale, l'espansione si applica
+  alla base e quindi all'esponente: per esempio $(3\cdot (x+1))^{(x+1)\cdot x} =
+  (3\cdot x +3 )^{x^2 + x}$.
 
 * I nodi **moltiplicazione** sono espansi come prodotto (associativo a sinistra)
-  dell'espansione dei propri fattori. L'espansione del prodotto di due fattori
-  costituiti è ottenuto usando le *proprietà distributive* del prodotto e della
-  somma: ad esempio $x \cdot (y + 2) \cdot (z + 3) = (x\cdot y + 2\cdot x)\cdot
-  (z+3) = x\cdot y\cdot z+ 3\cdot x\cdot y+ 2\cdot x\cdot z+ 6\cdot x$
+  dell'espansione dei propri fattori. L'espansione del prodotto di due fattori è
+  ottenuto usando le *proprietà distributive* del prodotto e della somma: ad
+  esempio $x \cdot (y + 2) \cdot (z + 3) = (x\cdot y + 2\cdot x)\cdot (z+3) =
+  x\cdot y\cdot z+ 3\cdot x\cdot y+ 2\cdot x\cdot z+ 6\cdot x$
   
 * I nodi **addizione** sono espansi come somma dell'espansione dei propri
   addendi.
