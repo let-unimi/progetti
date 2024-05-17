@@ -81,7 +81,7 @@ Prima di iniziare lo sviluppo del progetto *attendente che venga pubblicata la
 versione definitiva* e di esservi *accordati col docente* sugli aspetti legati
 al contenuto dell'insegnamento.
 
-Versione: `$Id: 84b3ef49f117acf0bd1966d19676b00219cd8c1a $`
+Versione: `$Id: 5fe298a92ea18a844d153e4099131652963462e6 $`
 ```
 
 ## Le espressioni algebriche
@@ -241,12 +241,7 @@ ridurre il numero di nodi, definite induttivamente come segue.
   * si raccolgono i fattori non razionali identici sostituendoli con la potenza
     data dalla somma dei loro esponenti: ad esempio $x^{-1} \cdot (1 + y^2)
     \cdot x^4 \cdot (1 +y^2)$ viene semplificato in $\left(1+ y^2\right)^2\cdot
-    x^3$;
-
-  * a questo punto, se restano due fattori di cui uno è razionale e l'altro è
-    una somma, si distribuisce il prodotto su tutti i termini della somma: ad
-    esempio $3 \cdot x \cdot (y + 1)$ viene semplificato in $(3 + 3\cdot y)\cdot
-    x$. 
+    x^3$.
   
 * I nodi **addizione** vengono analogamente semplificati attraverso altre
   trasformazioni: 
@@ -277,10 +272,10 @@ sulla *proprietà algebriche* di somme, prodotti e potenze.
 Tale manipolazione prende il nome di **espansione** e si ottiene applicando le
 seguenti trasformazioni definite induttivamente.
 
-* I nodi **potenza** con *esponente* razionale $\frac p q$ vengono espansi come
-  il prodotto dell'espansione della *base* per se stessa $|p|$ volte, elevato a
-  $\frac {p/|p|} q$: ad esempio $(x+1)^{-3/2} = \left( (x+1)\cdot (x+1) \cdot
-  (x+1) \right)^{-1/2}$; se l'esponente non è razionale, l'espansione si applica
+* I nodi **potenza** con *esponente* razionale $p / q$ vengono espansi come il
+  prodotto dell'espansione della *base* per se stessa $|p|$ volte, elevato a
+  $\frac {p/|p|} q$: ad esempio $(x+1)^{-3/2} =  \left(x^3+ 3\cdot x+ 3\cdot
+  x^2+ 1\right)^{-1/2}$; se l'esponente non è razionale, l'espansione si applica
   alla base e quindi all'esponente: per esempio $(3\cdot (x+1))^{(x+1)\cdot x} =
   (3\cdot x +3 )^{x^2 + x}$.
 
