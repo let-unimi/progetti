@@ -1,0 +1,11 @@
+def double(x) {
+  return x * 2
+}
+
+def increment(x) {
+  return x + 1
+}
+
+def main(x) {
+  return double(increment(x))
+}

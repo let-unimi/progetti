@@ -1,0 +1,11 @@
+def append(xs, ys) {
+  if (xs == []) {
+    return ys
+  } else {
+    return head(xs) :: append(tail(xs), ys)
+  }
+}
+
+def main(x1, x2, y1, y2) {
+  return head(append(x1 :: x2 :: [], y1 :: y2 :: []))
+}

@@ -1,0 +1,11 @@
+def min_two(x, y) {
+  if (x < y) {
+    return x
+  } else {
+    return y
+  }
+}
+
+def main(a, b, c) {
+  return min_two(min_two(a, b), c)
+}

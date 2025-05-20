@@ -1,0 +1,11 @@
+def dot_product(xs, ys) {
+  if (xs == []) {
+    return 0
+  } else {
+    return (head(xs) * head(ys)) + dot_product(tail(xs), tail(ys))
+  }
+}
+
+def main(x1, x2, y1, y2) {
+  return dot_product(x1 :: x2 :: [], y1 :: y2 :: [])
+}

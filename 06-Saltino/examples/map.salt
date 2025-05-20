@@ -1,0 +1,15 @@
+def map(f, lst) {
+  if (lst == []) {
+    return []
+  } else {
+    return f(head(lst)) :: map(f, tail(lst))
+  }
+}
+
+def add1(x) {
+  return x + 1
+}
+
+def main(x1, x2) {
+  return head(map(add1, x1 :: x2 :: []))
+}
