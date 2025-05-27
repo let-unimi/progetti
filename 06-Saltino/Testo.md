@@ -87,7 +87,7 @@ Un esempio di programma è:
 ```python
 
 def min2(x, y) {
-  if (x < y) then {
+  if x < y {
     return x
   } else {
     return y
