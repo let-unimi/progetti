@@ -7,7 +7,7 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.17.1
 kernelspec:
-  display_name: named-let-saltino
+  display_name: let-saltino
   language: python
   name: python3
 ---
@@ -232,7 +232,7 @@ precisata come segue:
 
 Le chiamate meritano una nota a parte, dato Saltino è un linguaggio funzionale
 possono esserci espressioni il cui valore è una funzione. Le chiamate hanno
-precedenza più bassa rispetto agli altri operatori e sono associative a destra.
+precedenza più alta rispetto agli altri operatori e sono associative a destra.
 L'espressione `f(x, y)(z)` è pertanto da intendersi come la chiamata `g(z)` dove
 `g` è la funzione restituita da `f(x, y)`.
 
