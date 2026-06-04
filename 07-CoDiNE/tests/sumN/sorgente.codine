@@ -1,0 +1,10 @@
+# Somma 1 + 2 + ... + n — ciclo while su Num
+def main(n : Num) : Num {
+    var i = 1
+    var s = 0
+    while i <= n {
+        s = s + i
+        i = i + 1
+    }
+    return s
+}

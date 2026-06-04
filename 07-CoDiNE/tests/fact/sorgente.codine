@@ -1,0 +1,8 @@
+# Fattoriale — ricorsione su Num
+def fact(n : Num) : Num {
+    if n <= 1 { return 1 } else { return n * fact(n - 1) }
+}
+
+def main(n : Num) : Num {
+    return fact(n)
+}

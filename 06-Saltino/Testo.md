@@ -219,8 +219,8 @@ precisata come segue:
 * le `(` e `)` hanno la precedenza su tutti gli operatori,
 * `^` ha la precedenza su tutti gli operatori aritmetici e di lista, binari e
   unari,
-* il `+` e `-` unari hanno precedenza su `+` e `-` binari,
-* `*` e `/` e `%` hanno precedenza su `+` e `-` unari e binari e su `::`,
+* il `+` e `-` unari hanno precedenza sugli operatori binari aritmetici,
+* `*` e `/` e `%` hanno precedenza su `+` e `-` binari e su `::`,
 * gli operatori binari di comparazione hanno la precedenza su `and` e `or`,
 * il `!` unario ha precedenza su `and` e `or`,
 * l'`and` ha precedenza sull'`or`,

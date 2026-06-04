@@ -1,0 +1,11 @@
+# Conversione automatica di unità nella somma
+# 18 km/h + v m/s: le due velocità vengono portate in forma canonica (m/s) prima della somma
+dimension Lunghezza with unit m
+dimension Tempo     with unit s
+
+unit km = 1000 * m
+unit h  = 3600 * s
+
+def main(v : Num) : m / s {
+    return 18 * km / h + v * m / s
+}

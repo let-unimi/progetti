@@ -1,0 +1,10 @@
+# Massimo di due lunghezze — if/else con tipo dimensionale
+dimension Lunghezza with unit m
+
+def max_len(a : m, b : m) : m {
+    if a > b { return a } else { return b }
+}
+
+def main(a : m, b : m) : m {
+    return max_len(a, b)
+}

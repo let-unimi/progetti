@@ -1,0 +1,8 @@
+# Velocità media — divisione con tipo dimensionale m/s
+# Dimostra il tipo di ritorno frazionario con unità
+dimension Lunghezza with unit m
+dimension Tempo     with unit s
+
+def main(d : m, t : s) : m / s {
+    return d / t
+}

@@ -44,11 +44,11 @@ di documentazione automatica disponibili per il linguaggio scelto.
 
 Il codice deve consentire un minimo di **testing**, se non altro sotto forma di test unitari e di accettazione; qualora il testo del progetto indichi esplicitamente alcuni test, è comunque *necessario che lo studente sviluppi ulteriori test* secondo le tecniche e usando gli strumenti che gli sono più familiari.
 
-## Progetti per l'anno accademico 2024/25
+## Progetti per l'anno accademico 2025/26
 
 #### Tipo A
 
-* **versione preliminare** [Saltino](06-Saltino), un interprete/compilatore per un semplice *linguaggio funzionale*.
+* **versione preliminare** [CoDiNE](07-CoDiNE), un interprete per un linguaggio imperativo con **Co**ntrollo **Di**mensionale e **N**ormalizzazione di **E**spressioni ([testo](https://let-unimi.github.io/progetti/07-CoDiNE/)).
 
 #### Tipo B
 

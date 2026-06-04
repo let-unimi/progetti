@@ -1,0 +1,5 @@
+# Frazioni esatte — verifica che l'aritmetica sia razionale e non floating-point
+# Calcola 1/a + 1/b = (a+b)/(a*b)
+def main(a : Num, b : Num) : Num {
+    return 1 / a + 1 / b
+}

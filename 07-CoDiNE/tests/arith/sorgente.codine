@@ -1,0 +1,5 @@
+# Operazioni aritmetiche su Num — verifica precedenza e frazioni esatte
+# Calcola a * b + a / b
+def main(a : Num, b : Num) : Num {
+    return a * b + a / b
+}

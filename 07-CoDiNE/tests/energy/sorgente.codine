@@ -1,0 +1,21 @@
+# Energia potenziale gravitazionale — esempio del testo
+# Dimostra: dichiarazioni di dimensioni e unità, funzioni, tipo di ritorno
+dimension Lunghezza with unit m
+dimension Tempo     with unit s
+dimension Massa     with unit kg
+
+unit km = 1000 * m
+unit h  = 3600 * s
+unit N  = kg * m / s ^ 2
+unit g  = 981 / 100 * m / s ^ 2
+
+def forza_peso(m : kg) : N {
+    var f = m * g
+    return f
+}
+
+def main(massa : kg, altezza : m) : N * m {
+    var f = forza_peso(massa)
+    var e = f * altezza
+    return e
+}

@@ -1,0 +1,11 @@
+# Teorema di Pitagora — dimostra l'operatore ^ e il tipo m^2
+# Restituisce il quadrato dell'ipotenusa: a^2 + b^2
+dimension Lunghezza with unit m
+
+def hyp_sq(a : m, b : m) : m ^ 2 {
+    return a * a + b * b
+}
+
+def main(a : m, b : m) : m ^ 2 {
+    return hyp_sq(a, b)
+}
